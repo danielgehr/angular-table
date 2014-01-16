@@ -32,7 +32,7 @@
             th.append(icon);
           }
           newWith = function(oldWith) {
-            oldWith = parseInt(oldWith.replace("px", ""), 10) + 10;
+            oldWith = parseInt(oldWith.replace("px", ""), 10) + 5;
             return oldWith + "px";
           };
           th.attr("width", newWith(td.width));
