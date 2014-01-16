@@ -27,11 +27,11 @@
           th.html("" + title);
           if (td.sortable) {
             th.attr("ng-click", "predicate = '" + td.attribute + "'; descending = !descending;");
-            icon = angular.element("<i style='margin-left: 10px;'></i>");
+            icon = angular.element("<i style='margin-left: 5px;'></i>");
             icon.attr("ng-class", "getSortIcon('" + td.attribute + "')");
             th.append(icon);
           }
-          th.attr("width", td.width);
+          th.attr("width", td.width + 10);
           tr.append(th);
         }
         return tr;
