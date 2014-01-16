@@ -9,7 +9,7 @@
     "metaCollector", "setupFactory", function(metaCollector, setupFactory) {
       var constructHeader, normalizeInput, validateInput;
       constructHeader = function(customHeaderMarkup, bodyDefinitions) {
-        var attribute, icon, td, th, title, tr, _i, _j, _len, _len1, _ref;
+        var attribute, icon, newWith, td, th, title, tr, _i, _j, _len, _len1, _ref;
         tr = angular.element("<tr></tr>");
         for (_i = 0, _len = bodyDefinitions.length; _i < _len; _i++) {
           td = bodyDefinitions[_i];
@@ -31,7 +31,11 @@
             icon.attr("ng-class", "getSortIcon('" + td.attribute + "')");
             th.append(icon);
           }
-          th.attr("width", td.width + 10);
+          newWith = function(oldWith) {
+            oldWith = parseInt(oldWith.replace("px", ""), 10) + 10;
+            return oldWith + "px";
+          };
+          th.attr("width", newWith(td.width));
           tr.append(th);
         }
         return tr;
