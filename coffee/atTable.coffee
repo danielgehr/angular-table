@@ -20,11 +20,15 @@ angular.module("angular-table").directive "atTable", ["metaCollector", "setupFac
 
       if td.sortable
         th.attr("ng-click", "predicate = '#{td.attribute}'; descending = !descending;")
-        icon = angular.element("<i style='margin-left: 10px;'></i>")
+        icon = angular.element("<i style='margin-left: 5px;'></i>")
         icon.attr("ng-class", "getSortIcon('#{td.attribute}')")
         th.append(icon)
 
-      th.attr("width", td.width)
+      newWith = (oldWith) ->
+        oldWith = parseInt(oldWith.replace("px",""), 10) + 5
+        return oldWith+"px";
+
+      th.attr("width", newWith(td.width))
       tr.append(th)
 
     tr
@@ -75,7 +79,7 @@ angular.module("angular-table").directive "atTable", ["metaCollector", "setupFac
 
           $scope.getSortIcon = (predicate) ->
             return "icon-minus" if predicate != $scope.predicate
-            if $scope.descending then "icon-chevron-down" else "icon-chevron-up"
+            if $scope.descending then "fa fa-arrow-down" else "fa fa-arrow-up"
 
           setup.link($scope, $element, $attributes)
       }

@@ -4,7 +4,7 @@ angular.module("angular-table").directive "atPagination", [() ->
     restrict: "E"
     template: "
       <div class='pagination' style='margin: 0px;'>
-        <ul>
+        <ul class='pagination'>
           <li ng-class='{disabled: currentPage <= 0}'>
             <a href='' ng-click='goToPage(currentPage - 1)'>&laquo;</a>
           </li>
